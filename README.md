@@ -9,6 +9,8 @@ Opencv-rng is a program used to generate random numbers based on camera output
     - opencv-python 
     - requests
 
+### Clone repository and install dependencies
+
 ```bash
 # clone the repository
 git clone tzdanows/opencv-rng
@@ -18,21 +20,22 @@ chmod +x install.sh
 ./install.sh
 
 # run in Windows powershell terminal
-.\install.ps1
+./install.ps1
 ```
 
-### Manually running without docker
+### Running the server & client
 ```bash
-# from root directory (keep this online)
+# run this from the root directory (keep this running)
 go run go-server/server.go
 ```
 
 ```bash
-# from root directory 
+# run this from the root directory 
+# --addr WILL NOT CHANGE
 # --key is the url path in the HTTP route setup
 # --count is the amount of images to view(1 per second))
-# max rand integer is a parameter you input while running
-python3 py-client/captureFrame.py --addr="127.0.0.1:7890" --key="Lurv" --count 1
+# --max is the maximum number that can be generated
+python3 py-client/captureFrame.py --addr="127.0.0.1:7890" --key="Lurv" --count 2 --max 127
 ```
 
 ### References

@@ -12,11 +12,16 @@ parser = OptionParser()
 parser.add_option("-a", "--addr", dest="addr", help="address to publish", metavar="ADDR")
 parser.add_option("-k", "--key", dest="key", help="key address of the host", metavar="KEY")
 parser.add_option("-c", "--count", dest="count", type="int", default=1, help="how many numbers to generate and send", metavar="COUNT")
+parser.add_option("-m", "--max", dest="max_value", type="int", default=1000, help="max value for the generated number", metavar="MAX")
 
 (options, args) = parser.parse_args()
 
 if options.key is None:
     print("--key was not provided!")
+    sys.exit()
+    
+if 1 >= options.max_value:
+    print("min value must be less than max value")
     sys.exit()
 
 addr = "http://127.0.0.1:7890/"
@@ -67,7 +72,10 @@ for i in range(options.count):
 
     # Use the adjusted accumulator as the seed
     random.seed(entropy_accumulator)
-    final_random_number = random.randint(1, 1000)
+    
+    # Use max as the upper limit for generating the random number
+    final_random_number = random.randint(1, options.max_value)
+
     print(f"Final randomly generated number: {final_random_number} \n")
 
     # send this final number to the server
