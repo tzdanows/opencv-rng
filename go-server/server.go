@@ -14,7 +14,7 @@ type NumberPayload struct {
 }
 
 func main() {
-	http.HandleFunc("/Lurv", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/RandomWebUrl", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
 			http.Error(w, "Method is not supported.", http.StatusMethodNotAllowed)
 			return

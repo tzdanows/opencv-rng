@@ -35,7 +35,7 @@ go run go-server/server.go
 # --key is the url path in the HTTP route setup
 # --count is the amount of images to view(1 per second))
 # --max is the maximum number that can be generated
-python3 py-client/captureFrame.py --addr="127.0.0.1:7890" --key="Lurv" --count 2 --max 127
+python3 py-client/captureFrame.py --addr="127.0.0.1:7890" --key="RandomWebUrl" --count 2 --max 127
 ```
 
 ### References
