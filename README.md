@@ -17,10 +17,10 @@ git clone tzdanows/opencv-rng
 
 # run in Mac/Linux terminal
 chmod +x install.sh
-./install.sh
+./unix-install.sh
 
 # run in Windows powershell terminal
-./install.ps1
+./windows-install.ps1
 ```
 
 ### Running the server & client
