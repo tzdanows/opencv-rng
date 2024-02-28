@@ -3,7 +3,7 @@
 Opencv-rng is a program used to generate random numbers based on camera output
 
 ### Requirements
-* Docker
+* Docker (potentially optional)
 * [Go](https://golang.org/doc/install)
 * [Python](https://www.python.org/downloads/)
     - numpy
@@ -11,16 +11,16 @@ Opencv-rng is a program used to generate random numbers based on camera output
     - requests
 
 ```bash
+git clone tzdanows/opencv-rng
 pip install numpy
 pip install opencv-python
 pip install requests
-git clone tzdanows/opencv-rng
 ```
 
 ### Running with docker
 ```bash
 # todo
-
+docker-compose up --build
 ```
 
 ### Manually running without docker
