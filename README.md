@@ -1,19 +1,40 @@
-# videorand
+# Description
 
-videorand is a program that generates random numbers in real-time
-based on the input from a video camera and submits generated numbers via http.
-## Installation
+Opencv-rng is a program used to generate random numbers based on camera output
+
+### Requirements
+* Docker
+* [Go](https://golang.org/doc/install)
+* [Python](https://www.python.org/downloads/)
+    - numpy
+    - opencv-python 
+    - requests
+
 ```bash
-$ pip3 install numpy
-$ pip3 install opencv-python
-$ git clone https://github.com/kisulken/videorand
+pip install numpy
+pip install opencv-python
+pip install requests
+git clone tzdanows/opencv-rng
 ```
-## Example of use
+
+### Running with docker
 ```bash
-$ python3 capture.py --addr="127.0.0.1:7890" --key="mySecrectKeyHanlder"
+# todo
+
 ```
 
-Where the key is a unique address that will be availble on a server machine (i.e http://127.0.0.1:7890/mySecrectKeyHanlder)
-in order to accept new values.
+### Manually running without docker
+```bash
+# from root directory (keep this up)
+go run go-server/server.go`
+```
 
-For this example to operate properly there must be a [server](https://github.com/kisulken/truerandom-mirror) running on port 7890
+```bash
+# from root directory 
+# --key is the url path in the HTTP route setup
+# --count is the amount of images to view(1 per second))
+python3 py-client/captureFrame.py --addr="127.0.0.1:7890" --key="Lurv" --count 1
+```
+
+### References
+> Built off of [videorand](https://github.com/bazuker/videorand)

@@ -1,10 +1,11 @@
+# Converts a single pixel's RGB values into a single integer
 def serialize_pixel(pixel):
     r = pixel[0]
     g = pixel[1]
     b = pixel[2]
     return r*g*b*(r+g+b)
 
-
+# Processes a square chunk of the video frame, converting its pixel data into a single integer
 def serialize_chunk(chunk):
     height = len(chunk)-1
     if height < 1:
@@ -20,7 +21,7 @@ def serialize_chunk(chunk):
             sum += serialize_pixel(chunk[x, y])
     return sum
 
-
+# Serializes the entire frame by dividing it into chunks and processing each chunk individually
 def serialize_frame(frame, width, height, chunk_size):
     x = 0
     y = 0
