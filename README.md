@@ -1,6 +1,6 @@
 # Description
 
-Opencv-rng is a program used to generate random numbers based on camera output
+Opencv-rng is a program used to generate random numbers based on photos from a connected video camera device
 
 ### Requirements
 * [Go](https://golang.org/doc/install)

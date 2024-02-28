@@ -1,35 +1,29 @@
 #!/bin/bash
 
-echo "Starting installation..."
+echo "Starting scripts for go & python check and package installations..."
 
-# Check if Go is installed
+# Check for Go install
 if ! command -v go &> /dev/null
 then
     echo "Go could not be found, please install it to proceed."
     exit
 fi
+echo "Go install detected"
 
-# Check if Python is installed
+# Check for Python install
 if ! command -v python3 &> /dev/null
 then
     echo "Python could not be found, please install it to proceed."
     exit
 fi
+echo "Python install detected"
 
-# Go Server Setup
-echo "Setting up Go server..."
-cd go-server || exit
-go mod tidy
-go build -o server .
-cd ..
+# Python Packages Setup
+echo "Setting up Python environment and installing packages..."
+python3 -m pip install --upgrade pip
+python3 -m pip install numpy
+python3 -m pip install opencv-python
+python3 -m pip install requests
 
-# Py Client Setup
-echo "Setting up Python client..."
-cd py-client || exit
-python3 -m venv venv
-source venv/bin/activate
-pip install --upgrade pip
-pip install numpy opencv-python requests
-cd ..
-
-echo "Installation complete. Please follow the README for instructions on how to run the applications."
+echo "Python packages numpy, opencv-python, and requests have been installed."
+echo "Installation complete, continue in the README to run the app"
